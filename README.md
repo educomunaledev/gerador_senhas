@@ -1,4 +1,3 @@
-```markdown
 # Gerador de Senhas Aleatórias
 
 Este projeto é um gerador de senhas aleatórias desenvolvido em Python usando a biblioteca Tkinter para criar uma interface gráfica simples e funcional. O gerador permite que você crie senhas com diferentes tamanhos e características, como inclusão de letras maiúsculas e símbolos. 
@@ -56,4 +55,3 @@ Se você deseja contribuir para este projeto, sinta-se à vontade para enviar pu
 
 Este projeto é licenciado sob a [MIT License](LICENSE).
 
-```
