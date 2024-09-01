@@ -18,8 +18,24 @@ def gerar_senha_evento():
         incluir_simbolos = var_simbolos.get()
         senha = gerar_senha(tamanho, incluir_maiusculas, incluir_simbolos)
         label_resultado.config(text=f"Senha gerada: {senha}")
+        root.clipboard_clear()
+        root.clipboard_append(senha)
+        root.update()  # Atualiza o conteúdo da área de transferência
     except ValueError:
         label_resultado.config(text="Por favor, insira um número válido")
+
+def copiar_senha_evento():
+    try:
+        senha = label_resultado.cget("text").replace("Senha gerada: ", "")
+        if senha:
+            root.clipboard_clear()
+            root.clipboard_append(senha)
+            root.update()
+            label_resultado.config(text="Senha copiada para a área de transferência!")
+        else:
+            label_resultado.config(text="Nenhuma senha para copiar.")
+    except Exception as e:
+        label_resultado.config(text=f"Erro ao copiar: {e}")
 
 # Configuração da janela principal
 root = tk.Tk()
@@ -56,6 +72,9 @@ check_simbolos.pack(pady=5)
 
 button_gerar = tk.Button(frame_interno, text="Gerar Senha", command=gerar_senha_evento, font=fonte_padrao)
 button_gerar.pack(pady=10)
+
+button_copiar = tk.Button(frame_interno, text="Copiar Senha", command=copiar_senha_evento, font=fonte_padrao)
+button_copiar.pack(pady=10)
 
 label_resultado = tk.Label(frame_interno, text="", font=fonte_padrao, bg=cor_fundo)
 label_resultado.pack(pady=10)
