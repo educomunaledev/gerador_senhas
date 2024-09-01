@@ -1,55 +1,44 @@
 # Gerador de Senhas Aleatórias
 
-Este projeto é um simples gerador de senhas aleatórias em Python. O objetivo é criar senhas seguras que podem ser usadas para proteger suas contas e dados pessoais. O script permite ao usuário especificar o comprimento da senha desejada e gera uma senha composta por caracteres alfanuméricos e símbolos especiais.
+Este projeto é um gerador de senhas aleatórias em Python. Ele permite criar senhas de comprimento personalizado, com opções para incluir letras maiúsculas e símbolos.
 
 ## Funcionalidades
 
-- **Geração de Senhas Aleatórias**: Cria senhas seguras com caracteres aleatórios.
-- **Customização**: Permite definir o comprimento da senha.
-- **Simples e Eficiente**: Código compacto e fácil de usar.
+- **Geração de Senhas Aleatórias**: O gerador cria senhas com base em um comprimento definido pelo usuário.
+- **Opções de Personalização**:
+  - Inclui letras maiúsculas
+  - Inclui símbolos (como !, @, #, etc.)
+- **Interface Gráfica**: Utiliza a biblioteca Tkinter para fornecer uma interface gráfica simples e intuitiva para o usuário.
 
 ## Como Usar
 
-1. **Clone o Repositório**:
+1. **Executar o Script**: Rode o script Python `gerador_senha.py` em seu ambiente Python.
+2. **Definir o Comprimento da Senha**: Insira o comprimento desejado para a senha no campo fornecido.
+3. **Escolher Opções de Personalização**:
+   - Marque a opção para incluir letras maiúsculas, se desejado.
+   - Marque a opção para incluir símbolos, se desejado.
+4. **Gerar Senha**: Clique no botão "Gerar Senha" para visualizar a senha gerada.
 
-   ```bash
-   git clone https://github.com/educomunaledev/gerador_senhas.git
-   ```
+## Exemplo de Interface
 
-2. **Navegue para o Diretório**:
+![Captura de Tela](imagens/captura_tela.jpeg)
 
-   ```bash
-   cd gerador_senhas
-   ```
-
-3. **Execute o Script**:
-
-   ```bash
-   python gerador_senha.py
-   ```
-
-4. **Informe o Comprimento da Senha**:
-
-   Quando solicitado, insira o comprimento desejado para a senha e pressione Enter.
-
-5. **Receba a Senha Gerada**:
-
-   O script exibirá a senha aleatória gerada com o comprimento especificado.
-
-## Exemplo
-
-```plaintext
-Informe o tamanho da senha: 12
-Senha gerada: A7%t$N#6f!Zq
-```
-
-## Requisitos
+## Dependências
 
 - Python 3.x
+- Tkinter (geralmente incluído na instalação padrão do Python)
+
+## Executando o Projeto
+
+Para executar o projeto, você deve ter o Python instalado em seu sistema. Execute o script `gerador_senha.py` usando o comando:
+
+```bash
+python gerador_senha.py
+```
 
 ## Contribuições
 
-Sinta-se à vontade para contribuir com melhorias ou novos recursos. Basta fazer um fork deste repositório e enviar um pull request com suas alterações.
+Sinta-se à vontade para contribuir com melhorias ou novos recursos. Se você encontrar um bug ou tiver uma sugestão, abra um [issue](https://github.com/educomunaledev/gerador_senhas/issues).
 
 ## Licença
 
