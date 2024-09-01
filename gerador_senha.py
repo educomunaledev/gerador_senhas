@@ -11,7 +11,7 @@ def gerar_senha(tamanho, incluir_maiusculas, incluir_simbolos):
 
     return ''.join(random.choice(caracteres) for _ in range(tamanho))
 
-def gerar_senha_evento():
+def gerar_senha_evento(event=None):  # Modificado para aceitar eventos
     try:
         tamanho = int(entry_tamanho.get())
         incluir_maiusculas = var_maiusculas.get()
@@ -78,6 +78,9 @@ button_copiar.pack(pady=10)
 
 label_resultado = tk.Label(frame_interno, text="", font=fonte_padrao, bg=cor_fundo)
 label_resultado.pack(pady=10)
+
+# Bind da tecla Enter para gerar a senha ao pressionar Enter
+root.bind('<Return>', gerar_senha_evento)
 
 # Configuração da janela centralizada
 largura_janela = 400
