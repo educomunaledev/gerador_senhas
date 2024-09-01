@@ -21,7 +21,7 @@ Este projeto é um gerador de senhas aleatórias em Python. Ele permite criar se
 
 ## Exemplo de Interface
 
-![Captura de Tela](imagens/captura_tela.jpeg)
+![Captura de Tela](imagens/captura_gerador.jpeg)
 
 ## Dependências
 

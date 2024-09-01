@@ -1,52 +1,73 @@
 import tkinter as tk
-from tkinter import messagebox
 import random
 import string
 
-def gerar_senha(comprimento, incluir_maiusculas, incluir_simbolos):
+def gerar_senha(tamanho, incluir_maiusculas, incluir_simbolos):
     caracteres = string.ascii_lowercase
     if incluir_maiusculas:
         caracteres += string.ascii_uppercase
     if incluir_simbolos:
         caracteres += string.punctuation
-    caracteres += string.digits
 
-    senha = ''.join(random.choice(caracteres) for i in range(comprimento))
-    return senha
+    return ''.join(random.choice(caracteres) for _ in range(tamanho))
 
-def gerar():
+def gerar_senha_evento():
     try:
-        comprimento = int(entry_comprimento.get())
+        tamanho = int(entry_tamanho.get())
         incluir_maiusculas = var_maiusculas.get()
         incluir_simbolos = var_simbolos.get()
-
-        senha = gerar_senha(comprimento, incluir_maiusculas, incluir_simbolos)
+        senha = gerar_senha(tamanho, incluir_maiusculas, incluir_simbolos)
         label_resultado.config(text=f"Senha gerada: {senha}")
     except ValueError:
-        messagebox.showerror("Erro", "Comprimento da senha deve ser um número inteiro.")
+        label_resultado.config(text="Por favor, insira um número válido")
 
 # Configuração da janela principal
 root = tk.Tk()
 root.title("Gerador de Senhas")
 
-# Comprimento da senha
-tk.Label(root, text="Comprimento da senha:").pack(pady=5)
-entry_comprimento = tk.Entry(root)
-entry_comprimento.pack(pady=5)
+# Configuração do tamanho da fonte e cor de fundo
+fonte_padrao = ('Arial', 12)
+cor_fundo = '#f0f0f0'  # Cinza claro
 
-# Opções para incluir maiúsculas e símbolos
+root.configure(bg=cor_fundo)
+
+# Frame principal para centralizar o conteúdo
+frame = tk.Frame(root, bg=cor_fundo)
+frame.pack(expand=True, fill='both')
+
+# Frame interno para garantir a centralização
+frame_interno = tk.Frame(frame, bg=cor_fundo)
+frame_interno.pack(expand=True, fill='both')
+
+# Criação dos widgets
+label_tamanho = tk.Label(frame_interno, text="Informe o tamanho da senha:", font=fonte_padrao, bg=cor_fundo)
+label_tamanho.pack(pady=10)
+
+entry_tamanho = tk.Entry(frame_interno, font=fonte_padrao)
+entry_tamanho.pack(pady=5)
+
 var_maiusculas = tk.BooleanVar()
-tk.Checkbutton(root, text="Incluir letras maiúsculas", variable=var_maiusculas).pack(pady=5)
+check_maiusculas = tk.Checkbutton(frame_interno, text="Incluir letras maiúsculas", variable=var_maiusculas, bg=cor_fundo, font=fonte_padrao)
+check_maiusculas.pack(pady=5)
 
 var_simbolos = tk.BooleanVar()
-tk.Checkbutton(root, text="Incluir símbolos", variable=var_simbolos).pack(pady=5)
+check_simbolos = tk.Checkbutton(frame_interno, text="Incluir símbolos", variable=var_simbolos, bg=cor_fundo, font=fonte_padrao)
+check_simbolos.pack(pady=5)
 
-# Botão para gerar a senha
-tk.Button(root, text="Gerar Senha", command=gerar).pack(pady=10)
+button_gerar = tk.Button(frame_interno, text="Gerar Senha", command=gerar_senha_evento, font=fonte_padrao)
+button_gerar.pack(pady=10)
 
-# Label para exibir o resultado
-label_resultado = tk.Label(root, text="Senha gerada:")
-label_resultado.pack(pady=5)
+label_resultado = tk.Label(frame_interno, text="", font=fonte_padrao, bg=cor_fundo)
+label_resultado.pack(pady=10)
 
-# Iniciar a aplicação
+# Configuração da janela centralizada
+largura_janela = 400
+altura_janela = 300
+largura_tela = root.winfo_screenwidth()
+altura_tela = root.winfo_screenheight()
+x = (largura_tela - largura_janela) // 2
+y = (altura_tela - altura_janela) // 2
+root.geometry(f'{largura_janela}x{altura_janela}+{x}+{y}')
+
+# Iniciar o loop da interface gráfica
 root.mainloop()
